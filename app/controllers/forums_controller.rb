@@ -14,7 +14,8 @@ class ForumsController < ApplicationController
       flash[:notice] = "Forum has been created!"
       redirect_to @forum
     else
-      #empty
+      flash.now[:alert] = "Forum has not been created."
+      render "new"
     end
   end
 
