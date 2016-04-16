@@ -1,1 +1,6 @@
 <%= link_to "New Forum", new_forum_path %>
+
+<% @forums.each do |forum| %>
+  <h2><%= link_to forum.title, forum %></h2>
+  <p><%=  forum.description %></p>
+  <% end %>

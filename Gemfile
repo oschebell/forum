@@ -48,4 +48,5 @@ end
 
 group :test do
   gem "capybara", "~>2.4" #this is for integration testing
+  gem "factory_girl_rails", "~> 4.5" #allows easy way to create objects for tests
 end
