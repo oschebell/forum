@@ -24,6 +24,20 @@ class ForumsController < ApplicationController
     @forum = Forum.find(params[:id])
   end
 
+  def edit
+    @forum = Forum.find(params[:id])
+  end
+
+  def update
+      @forum = Forum.find(params[:id])
+        if @forum.update(forum_params)
+          flash[:notice] = "Forum has been updated."
+          redirect_to @forum
+        else
+          flash.now[:alert] = "Forum has not been updated."
+          render "edit"
+        end
+  end
 
 private
 
