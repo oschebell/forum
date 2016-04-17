@@ -1,4 +1,4 @@
-<%= simple_form_for(@forum) do |f| %>
+<%= simple_form_for([forum, topic]) do |f| %>
 
 <% if @forum.errors.any? %>
 <ul>
@@ -9,11 +9,8 @@
    <% end %>
 
   <p>
-    <%= f.input :title %><br>
+    <%= f.input :subject %><br>
   </p>
 
-  <p>
-    <%= f.input :description %><br>
-  </p>
   <%= f.button :submit %>
 <% end %>
