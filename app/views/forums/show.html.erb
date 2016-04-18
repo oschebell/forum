@@ -1,8 +1,16 @@
 <h1><%= @forum.title %></h1>
   <p><%= @forum.description %></p>
 
-  <%= link_to "Edit Forum", edit_forum_path(@forum) %>
+  <ul>
+    <% @forum.topics.each do |topic| %>
+      <li>
+        <h3><%= link_to topic.subject, [@forum, topic] %></h3>
+      </li>
+  </ul>
+  <% end %><br>
 
-  <%= link_to "Delete Forum", forum_path(@forum), method: :delete, data: {confirm: "Are you sure you wish to delete this forum?"} %>
+  <%= link_to "Edit Forum", edit_forum_path(@forum) %><br>
+
+  <%= link_to "Delete Forum", forum_path(@forum), method: :delete, data: {confirm: "Are you sure you wish to delete this forum?"} %><br>
 
   <%= link_to "New Topic", new_forum_topic_path(@forum) %>

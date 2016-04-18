@@ -1,1 +1,5 @@
 <%= simple_format(@topic.subject) %>
+
+<ul>
+  <li><%= link_to "Edit Topic", [:edit, @forum, @topic] %></li>
+</ul>
