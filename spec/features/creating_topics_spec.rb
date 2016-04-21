@@ -11,8 +11,11 @@ end
 
   scenario "with valid attributes" do
     fill_in "Subject", with: "RSpec woes"
+    fill_in "Text", with: "I've got the RSpec blues."
     click_button "Create Topic"
 
     expect(page).to have_content "Topic has been created."
+    expect(page).to have_content "RSpec woes"
+    expect(page).to have_content "I've got the RSpec blues."
   end
 end

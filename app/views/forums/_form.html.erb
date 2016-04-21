@@ -1,8 +1,8 @@
-<%= simple_form_for(@forum) do |f| %>
+<%= simple_form_for(forum) do |f| %>
 
-<% if @forum.errors.any? %>
+<% if forum.errors.any? %>
 <ul>
- <% @forum.errors.full_messages.each do |msg| %>
+ <% forum.errors.full_messages.each do |msg| %>
   <li><%= msg %></li>
     <% end %>
 </ul>

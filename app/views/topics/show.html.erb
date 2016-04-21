@@ -3,3 +3,7 @@
 <ul>
   <li><%= link_to "Edit Topic", [:edit, @forum, @topic] %></li>
 </ul>
+
+<% @topic.posts.each do |post| %>
+  <%= post.text %>
+<% end %>

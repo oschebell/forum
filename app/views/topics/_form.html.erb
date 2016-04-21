@@ -12,5 +12,11 @@
     <%= f.input :subject %><br>
   </p>
 
+  <%= f.fields_for :posts do |post| %>
+    <p>
+      <%= post.input :text %>
+    </p>
+  <% end %>
+
   <%= f.button :submit %>
 <% end %>

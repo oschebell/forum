@@ -5,7 +5,9 @@ before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   def new
     @topic = @forum.topics.build
+    @topic.posts.build
   end
+
 
   def create
     @topic = @forum.topics.build(topic_params)
@@ -48,6 +50,7 @@ before_action :set_topic, only: [:show, :edit, :update, :destroy]
   end
 
   def topic_params
-    params.require(:topic).permit(:subject)
+    params.require(:topic).permit(:subject, posts_attributes: [:text])
+
   end
 end
