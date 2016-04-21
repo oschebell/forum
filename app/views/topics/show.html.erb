@@ -5,5 +5,5 @@
 </ul>
 
 <% @topic.posts.each do |post| %>
-  <%= post.text %>
+  <%= markdown(post.text) %>
 <% end %>
