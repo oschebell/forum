@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "Users can create new topics" do
+  let(:user){FactoryGirl.create(:user)}
   before do #do this first
     forum = FactoryGirl.create(:forum, title: "Rails Fails")
 
@@ -17,5 +18,8 @@ end
     expect(page).to have_content "Topic has been created."
     expect(page).to have_content "RSpec woes"
     expect(page).to have_content "I've got the RSpec blues."
-  end
+      within ("#topics") do
+        expect(page).to have_content "Author: #{user.email}"
+      end
+    end
 end

@@ -1,9 +1,23 @@
 <%= simple_format(@topic.subject) %>
 
+<table id="attributes">
+    <tr>
+        <th>Author:</th>
+        <td><%= @topic.author.email %></td>
+    </tr>
+    <tr>
+        <th>Created:</th>
+        <td><%= time_ago_in_words(@topic.created_at) %>
+            ago</td>
+    </tr>
+</table>
+
 <ul>
-  <li><%= link_to "Edit Topic", [:edit, @forum, @topic] %></li>
+    <li><%= link_to "Edit Topic", [:edit, @forum, @topic] %></li>
 </ul>
 
-<% @topic.posts.each do |post| %>
-  <%= markdown(post.text) %>
-<% end %>
+<ul id="topics">
+    <% @topic.posts.each do |post| %>
+    <%= markdown(post.text) %>
+    <% end %>
+</ul>

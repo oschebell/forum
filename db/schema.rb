@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421065252) do
+ActiveRecord::Schema.define(version: 20160425031542) do
 
   create_table "forums", force: :cascade do |t|
     t.string   "title"
@@ -34,8 +34,10 @@ ActiveRecord::Schema.define(version: 20160421065252) do
     t.integer  "forum_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "author_id"
   end
 
+  add_index "topics", ["author_id"], name: "index_topics_on_author_id"
   add_index "topics", ["forum_id"], name: "index_topics_on_forum_id"
 
   create_table "users", force: :cascade do |t|
