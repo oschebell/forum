@@ -7,38 +7,38 @@
         <%= csrf_meta_tags %>
     </head>
     <body>
-      <% if user_signed_in? %>
-      <div>
-          <p>Signed in as
-              <%=current_user.email %></p>
-          <ul>
-              <li>
-                  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-              </li>
-          </ul>
-      </div>
-        <div>
-            <ul>
-                <li>
-                    <% "active" if current_page?("/users/sign_up") %>
-                    <%= link_to "Sign up", new_user_registration_path %>
-                </li>
 
-                <li>
-                    <% "active" if current_page?("/users/sign_in") %>
-                    <%= link_to "Sign in", new_user_session_path %>
-                </li>
-            </ul>
-        </div>
+<% if user_signed_in? %>
+  <div class="navbar-right">
+    <p class="navbar-text">
+      Signed in as <%= current_user.email %>
+    </p>
+    <ul class="nav navbar-nav">
+    <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+  </ul>
+  </div>
+<% end %>
 
 
-        <% end %>
+<div>
+  <% unless user_signed_in? %>
+    <li>
+      <% "active" if current_page?("/users/sign_up") %>
+      <%= link_to "Sign up", new_user_registration_path %>
+    </li>
 
-        <% flash.each do |key, message| %>
-        <div><%= message %></div>
-        <% end %>
+    <li>
+      <% "active" if current_page?("/users/sign_in") %>
+      <%= link_to "Sign in", new_user_session_path %>
+    </li>
+</div>
+<% end %>
 
-        <%= yield %>
+<% flash.each do |key, message| %>
+<div><%= message %></div>
+<% end %>
+
+<%= yield %>
 
     </body>
 </html>

@@ -11,7 +11,7 @@ before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   def create
     @topic = @forum.topics.build(topic_params)
-    @topic.author = current_user
+    @topic.posts.first.author = current_user
 
     if @topic.save
       flash[:notice] = "Topic has been created."

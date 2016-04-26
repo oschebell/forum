@@ -28,6 +28,8 @@ gem "simple_form", "~> 3.1.0"
 gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 
 gem "devise", "~> 3.4.1"
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -48,6 +50,8 @@ group :development, :test do
   gem 'spring'
 
   gem "rspec-rails", "~> 3.4" #feature testing etc
+
+  gem "pry"
 
 end
 
